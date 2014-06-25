@@ -12,6 +12,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JSpinner;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 
@@ -51,7 +54,12 @@ public class MainUI extends JFrame {
 		spinner.setFont(new Font("Dialog", Font.BOLD, 30));
 		contentPane.add(spinner);
 		
-		JButton btnNewButton = new JButton("Find nth digit");
+		JButton btnNewButton = new JButton("Find nth Fibo number");
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				spinner.setValue(Util.getNth((int)spinner.getValue()));
+			}
+		});
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Find n in sequence");
